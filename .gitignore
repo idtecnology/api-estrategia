@@ -1,0 +1,6 @@
+/.phpunit.cache
+/node_modules
+npm-debug.log
+/.fleet
+/.idea
+/.vscode
