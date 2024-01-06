@@ -4,7 +4,7 @@ async function execQuery(pool, sql) {
     return result;
   } catch (e) {
     console.log("Error en el MySql", e);
-    return false;
+    return { status: false, error: e };
   }
 }
 module.exports = { execQuery };

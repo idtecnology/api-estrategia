@@ -1,9 +1,8 @@
 const mysql = require("mysql");
 const { promisify } = require("util");
-const { dbGoogle } = require("./conn.js");
+const { dbGoogle } = require("./database_config.js");
 
-const connectionName =
-  process.env.INSTANCE_CONNECTION_NAME || "konectados-00:us-central1:kondat00";
+const connectionName = process.env.INSTANCE_CONNECTION_NAME;
 
 if (process.env.NODE_ENV === "production") {
   dbGoogle.socketPath = `/cloudsql/${connectionName}`;
