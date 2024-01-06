@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const pool = require("../config/database");
-const idBDMaster = process.env.DB_NAME_MASTER || "report00";
+const pool = require("../../config/database");
+const idBDMaster = process.env.DB_NAME_MASTER;
 
 const {
   getEstrategias,
@@ -16,7 +16,7 @@ const {
   estrategiasActivaCanal,
   procEstrategia,
   stopProcessEstrategia,
-} = require("../controllers/Estrategias");
+} = require("../../controllers/Estrategias");
 
 router.get("/estrategias/:prefix", async function (req, res) {
   try {

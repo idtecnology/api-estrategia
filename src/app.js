@@ -3,11 +3,12 @@ const express = require("express");
 const body_parser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3000;
+const version = process.env.VERSION_API;
 
 // Routes
-app.use(require("./routes/index"));
-app.use(require("./routes/clients"));
-app.use(require("./routes/estrategias"));
+app.use(`/api/${version}`, require("./routes/v1/index"));
+app.use(`/api/${version}`, require("./routes/v1/clients"));
+app.use(`/api/${version}`, require("./routes/v1/estrategias"));
 
 // Configure express
 app.use(express.json({ limit: "25mb" }));

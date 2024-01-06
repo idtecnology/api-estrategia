@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const pool = require("../config/database");
-const idBDMaster = process.env.DB_NAME_MASTER || "report00";
+const pool = require("../../config/database");
+const idBDMaster = process.env.DB_NAME_MASTER;
 
 // Funciones
 const {
@@ -11,7 +11,7 @@ const {
   getEstructuraTabla,
   updateCanalesCliente,
   getListasDiscador,
-} = require("../controllers/Clientes");
+} = require("../../controllers/Clientes");
 
 //Raiz
 router.get("/clientes", async function (req, res) {
