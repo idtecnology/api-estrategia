@@ -1,8 +1,10 @@
 /.phpunit.cache
-/node_modules
+node_modules/
 npm-debug.log
 /.fleet
 /.idea
 /.vscode
 .env
 package-lock.json
+*.log
+npm-debug.log*
