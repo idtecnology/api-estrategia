@@ -6,6 +6,9 @@ require("dotenv").config();
 //Controlador de la conexión a la BD
 const pool = require("../config/database");
 
+//Routes
+app.use(require("./routes/index"));
+
 //Rutas
 const {
   getClientes,
