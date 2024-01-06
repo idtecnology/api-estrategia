@@ -14,9 +14,10 @@ const {
 } = require("../../controllers/Clientes");
 
 //Raiz
-router.get("/clientes", async function (req, res) {
+router.get("/clientes/:id", async function (req, res) {
+  var idCall = req.params.id;
   try {
-    await getClientes(pool, idBDMaster).then((st) => {
+    await getClientes(pool, idBDMaster, idCall).then((st) => {
       res.send(st);
     });
   } catch (e) {

@@ -1,8 +1,8 @@
 const { execQuery } = require("../config/functions");
 
 module.exports = {
-  async getClientes(pool, idBD) {
-    sql = `call ${idBD}.proc_api_get_clientes;`;
+  async getClientes(pool, idBD, idCall) {
+    sql = `call ${idBD}.proc_api_get_clientes(${idCall});`;
     result = execQuery(pool, sql);
     if (result) {
       return result;
