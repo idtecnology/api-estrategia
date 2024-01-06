@@ -1,4 +1,4 @@
-const { execQuery } = require("./functions");
+const { execQuery } = require("../config/functions");
 
 module.exports = {
   async getEstrategias(pool, idBD, prefix) {
