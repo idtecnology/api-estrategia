@@ -4,7 +4,7 @@ const mysql = require("mysql");
 require("dotenv").config();
 
 //Controlador de la conexión a la BD
-const pool = require("./config/database");
+const pool = require("../config/database");
 
 //Rutas
 const {
@@ -14,7 +14,7 @@ const {
   getEstructuraTabla,
   updateCanalesCliente,
   getListasDiscador,
-} = require("./api/Clientes");
+} = require("../api/Clientes");
 const {
   getEstrategias,
   insertEstrategia,
@@ -28,7 +28,7 @@ const {
   estrategiasActivaCanal,
   procEstrategia,
   stopProcessEstrategia,
-} = require("./api/Estrategias");
+} = require("../api/Estrategias");
 
 //Valores Generales
 const idBDMaster = process.env.DB_NAME_MASTER || "report00";
