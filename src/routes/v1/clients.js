@@ -11,6 +11,7 @@ const {
   getEstructuraTabla,
   updateCanalesCliente,
   getListasDiscador,
+  getCliente,
 } = require("../../controllers/Clientes");
 
 //Raiz
@@ -18,6 +19,18 @@ router.get("/clientes/:id", async function (req, res) {
   var idCall = req.params.id;
   try {
     await getClientes(pool, idBDMaster, idCall).then((st) => {
+      res.send(st);
+    });
+  } catch (e) {
+    console.log("Error en proceso: ", e);
+    res.send('{"status": "Error getClientes"}');
+  }
+});
+
+router.get("/cliente/:id", async function (req, res) {
+  var idClient = req.params.id;
+  try {
+    await getCliente(pool, idBDMaster, idClient).then((st) => {
       res.send(st);
     });
   } catch (e) {

@@ -11,6 +11,16 @@ module.exports = {
     }
   },
 
+  async getCliente(pool, idBD, idClient) {
+    sql = `call ${idBD}.proc_api_get_client(${idClient});`;
+    result = execQuery(pool, sql);
+    if (result) {
+      return result;
+    } else {
+      return "";
+    }
+  },
+
   async getCanal(pool, idBD, idCliente) {
     sql = `call ${idBD}.proc_api_get_Canal(${idCliente})`;
     result = execQuery(pool, sql);

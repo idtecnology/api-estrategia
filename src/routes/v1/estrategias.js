@@ -29,6 +29,7 @@ router.get("/estrategias/:prefix", async function (req, res) {
   }
 });
 
+//Save
 router.post("/estrategia", async function (req, res) {
   try {
     await insertEstrategia(
@@ -54,6 +55,7 @@ router.post("/estrategia", async function (req, res) {
   }
 });
 
+//Diseño
 router.get("/estrategias/diseno/:prefix", async function (req, res) {
   try {
     await getDisenoEstrategia(pool, idBDMaster, req.params.prefix).then(
