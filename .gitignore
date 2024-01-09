@@ -8,3 +8,4 @@ npm-debug.log
 package-lock.json
 *.log
 npm-debug.log*
+ecosystem.config.js
