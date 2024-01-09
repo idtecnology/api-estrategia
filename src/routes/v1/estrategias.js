@@ -113,7 +113,7 @@ router.put("/estrategia/detener/proceso/:id", async function (req, res) {
   }
 });
 
-router.get("/estrategia/records/", async function (req, res) {
+router.post("/estrategia/records", async function (req, res) {
   try {
     await recordsEstrategia(
       pool,
@@ -127,8 +127,8 @@ router.get("/estrategia/records/", async function (req, res) {
       res.send(st);
     });
   } catch (e) {
-    console.log("Error en proceso stopEstrategia: ", e);
-    res.send('{"status": "Error stopEstrategia"}');
+    console.log("Error en proceso recordsEstrategia: ", e);
+    res.send('{"status": "Error recordsEstrategia"}');
   }
 });
 
