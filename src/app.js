@@ -13,6 +13,7 @@ app.use(body_parser.urlencoded({ extended: true }));
 app.use(`/api/${version}`, require(`./routes/${version}/index`));
 app.use(`/api/${version}`, require(`./routes/${version}/clients`));
 app.use(`/api/${version}`, require(`./routes/${version}/estrategias`));
+app.use(`/api/${version}`, require(`./routes/${version}/emails`));
 
 // Configure header, cors
 app.use((req, res, next) => {

@@ -90,7 +90,7 @@ router.get("/estructura/:id", async function (req, res) {
   }
 });
 
-router.get("/listasdiscador/:prefix", async function (req, res) {
+router.get("/listas-discador/:prefix", async function (req, res) {
   try {
     await getListasDiscador(pool, idBDMaster, req.params.prefix).then((st) => {
       res.send(st);
