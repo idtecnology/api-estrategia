@@ -68,4 +68,14 @@ module.exports = {
       return "";
     }
   },
+
+  async getBetterStrucre(pool, idBD, idCliente) {
+    sql = `call ${idBD}.proc_get_estrucutra_tabla_mejor_gestion(${idCliente})`;
+    result = execQuery(pool, sql);
+    if (result) {
+      return result;
+    } else {
+      return "";
+    }
+  },
 };

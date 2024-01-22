@@ -12,6 +12,7 @@ const {
   updateCanalesCliente,
   getListasDiscador,
   getCliente,
+  getBetterStrucre,
 } = require("../../controllers/Clientes");
 
 //Raiz
@@ -82,6 +83,18 @@ router.get("/estructura/:id", async function (req, res) {
   var idCliente = req.params.id;
   try {
     await getEstructuraTabla(pool, idBDMaster, idCliente).then((st) => {
+      res.send(st);
+    });
+  } catch (e) {
+    console.log("Error en proceso getEstructuraTabla: ", e);
+    res.send('{"status": "Error getEstructuraTabla"}');
+  }
+});
+
+router.get("/better-structure/:id", async function (req, res) {
+  var idCliente = req.params.id;
+  try {
+    await getBetterStrucre(pool, idBDMaster, idCliente).then((st) => {
       res.send(st);
     });
   } catch (e) {
