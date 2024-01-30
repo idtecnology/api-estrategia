@@ -132,4 +132,24 @@ module.exports = {
       return '{"status": "400", "message": "error"}';
     }
   },
+
+  async getRecordsMails(pool, idBD, id) {
+    sql = `call ${idBD}.proc_api_get_records_send_email(${id})`;
+    result = execQuery(pool, sql);
+    if (result) {
+      return result;
+    } else {
+      return '{"status": "400", "message": "error"}';
+    }
+  },
+
+  async getEstadisticas(pool, idBD, id) {
+    sql = `call ${idBD}.proc_api_get_estadistica_estrategia(${id})`;
+    result = execQuery(pool, sql);
+    if (result) {
+      return result;
+    } else {
+      return '{"status": "400", "message": "error"}';
+    }
+  },
 };

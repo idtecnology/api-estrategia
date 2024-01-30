@@ -8,6 +8,7 @@ const {
   storeTemplate,
   getTemplateClient,
   getTemplateId,
+  mejorGestion,
 } = require("../../controllers/Emails");
 
 router.get("/email/template-client/:prefix", async function (req, res) {
@@ -55,16 +56,22 @@ router.post("/email/store-template", async function (req, res) {
   }
 });
 
-/*  
-  req.body.nombretemplate
-  req.body.prefix
-  req.body.columns
-  req.body.body
-  req.body.emailfrom
-  req.body.nombrefrom
-  req.body.asunto
-  req.body.emailreply
-  req.body.columnasCalc
-  */
+router.post("/mejor", async function (req, res) {
+  try {
+    await mejorGestion(
+      pool,
+      idBDMaster,
+      //   req.body.fec1,
+      //   req.body.fec2,
+      //   req.body.client_id
+      req.body.fecproc
+    ).then((st) => {
+      res.send(st);
+    });
+  } catch (e) {
+    console.log("Error en proceso storeTemplate: ", e);
+    res.send('{"status": "Error storeTemplate"}');
+  }
+});
 
 module.exports = router;

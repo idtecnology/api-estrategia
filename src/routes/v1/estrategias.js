@@ -16,6 +16,8 @@ const {
   estrategiasActivaCanal,
   procEstrategia,
   stopProcessEstrategia,
+  getRecordsMails,
+  getEstadisticas,
 } = require("../../controllers/Estrategias");
 
 router.get("/estrategias/:prefix", async function (req, res) {
@@ -185,6 +187,28 @@ router.get("/estrategia/historico/", async function (req, res) {
   }
 });
 
-//cliente
+router.get("/estrategia/record-mail/:id", async function (req, res) {
+  try {
+    await getRecordsMails(pool, idBDMaster, req.params.id).then((st) => {
+      res.send(st);
+    });
+  } catch (e) {
+    console.log("Error en proceso estrategiaTipo: ", e);
+    res.send('{"status": "Error estrategiaHistorico"}');
+  }
+});
+
+router.get("/estrategia/estadisticas/:idEstrategia", async function (req, res) {
+  try {
+    await getEstadisticas(pool, idBDMaster, req.params.idEstrategia).then(
+      (st) => {
+        res.send(st);
+      }
+    );
+  } catch (e) {
+    console.log("Error en proceso getEstadisticas: ", e);
+    res.send('{"status": "Error getEstadisticas"}');
+  }
+});
 
 module.exports = router;
